@@ -1,0 +1,435 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Mach",
+				"Machine_type"
+			],
+			[
+				"s",
+				"status"
+			],
+			[
+				"conta",
+				"container1_exist"
+			],
+			[
+				"line",
+				"line_text"
+			],
+			[
+				"text",
+				"text_content"
+			],
+			[
+				"location",
+				"location1"
+			],
+			[
+				"sta",
+				"start_pos"
+			],
+			[
+				"item",
+				"item_in"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"conti",
+				"contain"
+			],
+			[
+				"layout",
+				"layout_count"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "machine/models.py",
+			"settings":
+			{
+				"buffer_size": 2469,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "machine/admin.py",
+			"settings":
+			{
+				"buffer_size": 1664,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "equipment/urls.py",
+			"settings":
+			{
+				"buffer_size": 909,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "equipment/settings.py",
+			"settings":
+			{
+				"buffer_size": 3120,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Chutchai/Documents/git/equipment",
+		"/C/Users/Chutchai/Documents/git/equipment/equipment",
+		"/C/Users/Chutchai/Documents/git/equipment/machine"
+	],
+	"file_history":
+	[
+		"/C/Users/Chutchai/Documents/git/equipment/machine/views.py",
+		"/C/Users/Chutchai/Documents/git/equipment/equipment/urls.py",
+		"/C/Users/Chutchai/Documents/git/equipment/machine/urls.py",
+		"/C/Users/Chutchai/Documents/git/ticket/test_line.py",
+		"/C/Users/Chutchai/Documents/git/ticket/ticket.py",
+		"/C/Users/Chutchai/Documents/git/tid/xlsx.py",
+		"/C/Users/Chutchai/Documents/git/tid/tidstart.py",
+		"/D/tid/new_format/MTY/FULLIN2box.000",
+		"/C/Users/Chutchai/Documents/git/tid/TIDclass3.py",
+		"/D/tid/new_format/new_more/PRTDSK.004",
+		"/D/tid/new_format/new_more/PRTDSK.003",
+		"/D/tid/new_format/new_more/PRTDSK.002",
+		"/D/tid/new_format/new_more/PRTDSK.000",
+		"/D/tid/new_format/new_more/PRTDSK.001",
+		"/D/tid/act.py",
+		"/D/tid/auto_scan.py",
+		"/D/tid/new_format/print.000",
+		"/D/tid/new_format/print.001",
+		"/D/tid/new_format/print.002",
+		"/D/tid/new_format/print.003",
+		"/D/tid/new_format/print.004",
+		"/C/Users/Chutchai/Documents/git/tid/TIDclass.py",
+		"/C/Users/Chutchai/Documents/git/tid/TIDclass2.py",
+		"/F/p5/PRTDSK.002",
+		"/F/p5/PRTDSK.003",
+		"/F/p5/PRTDSK.001",
+		"/F/p5/PRTDSK.000",
+		"/F/P3/PRTDSK.003",
+		"/F/P3/PRTDSK.001",
+		"/F/P3/PRTDSK.000",
+		"/F/P3/PRTDSK.002",
+		"/F/P2/PRTDSK.002",
+		"/F/P2/PRTDSK.003",
+		"/F/P2/PRTDSK.000",
+		"/F/P2/PRTDSK.001",
+		"/F/PROBLEM/PRTDSK.003",
+		"/F/PROBLEM/PRTDSK.000",
+		"/F/PROBLEM/PRTDSK.001",
+		"/F/PROBLEM/PRTDSK.002",
+		"/C/Users/Chutchai/Documents/git/tid/.gitignore",
+		"/C/Users/Chutchai/Desktop/test.000",
+		"/C/Users/Chutchai/Desktop/test.001",
+		"/C/Users/Chutchai/Desktop/test.002",
+		"/C/Users/Chutchai/Desktop/test.003",
+		"/C/Users/Chutchai/Desktop/test.008",
+		"/F/TID/format/print.000",
+		"/D/TIDclass.py",
+		"/D/tidstart.py",
+		"/D/xlsx.py",
+		"/F/GitHub/saveFile/savefile.py",
+		"/C/Users/Chutchai/Desktop/angular/index.html",
+		"/C/Users/Chutchai/Desktop/angular/todos.js",
+		"/D/testtid.py"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"master_file",
+			"tid_file",
+			"tid.json",
+			"filename",
+			"master_file",
+			"self.container_line_number",
+			"getRaw",
+			"raw",
+			"container1_exist",
+			"print",
+			"get_container1",
+			"get_timestamp",
+			"get_call_card",
+			"get_container1",
+			"get_company",
+			"get_service1",
+			"get_line_text"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "machine/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2469,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								904,
+								910
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 135.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "machine/admin.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1664,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								862,
+								862
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "equipment/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 909,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								908,
+								908
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "equipment/settings.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								865,
+								865
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "eq.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 175.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
