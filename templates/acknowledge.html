@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Acknowledge Job{% endblock title %}
+
+<br>
+
+
+
+{% block head %}
+<div class="row">
+    <br>
+    <h3>Acknowledge Job</h3>
+</div>
+{% endblock head %}
+
+{% block form_content %}
+<div class="row">
+	<table class="table table-hover">
+	<tr>
+	   <th>Machine#</th>
+	   <th>Symptom</th>
+	   <th>Details</th>
+	   <th>Created Date</th>
+	 </tr>
+
+		<tr>
+			<td>{{ obj.machine }}</td>
+			<td>{{ obj.symptom }}</td>
+			<td>{{ obj.description }}</td>
+			<td>{{ obj.created_date }}</td>
+		</tr>
+
+	</table>
+
+
+
+<div class="col-xs-6 col-sm-4">
+<form action="" method="post">
+	<input type="hidden" name="next_page" value="{{next_page}}">
+    {% csrf_token %}
+            {% for field in form %}
+            
+            <!-- <div class="fieldWrapper"> -->
+                {{ field.errors }}
+                {{ field.label_tag }} {{ field }}
+                {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+                {% endif %}
+            <!-- </div><br> -->
+            <br>
+        	{% endfor %}
+            <input type="submit" value="Acknowledge" />
+            </form>
+        </div>
+
+
+<!-- {% if messages %}
+    {% for message in messages %}
+    	{% if message.tags == 'success' %} <h1 class="text-success">{{ message }}</h1> {% endif %}
+    	{% if message.tags == 'error' %} <h1 class="text-danger">{{ message }}</h1> {% endif %}
+    {% endfor %}
+{% endif %} -->
+</div>
+{% endblock form_content %}

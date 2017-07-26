@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}แจ้งซ่อม{% endblock title %}
+
+<br>
+
+
+
+{% block head %}
+<div class="row">
+    <br>
+    <h3>แจ้งซ่อม</h3>
+</div>
+{% endblock head %}
+
+{% block form_content %}
+<div class="row">
+<form action="" method="post">
+    {% csrf_token %}
+    <!-- {{ form }} -->
+    <div class="row">
+        <div class="col-xs-6 col-sm-4">
+            {% for field in form %}
+            
+            <!-- <div class="fieldWrapper"> -->
+                {{ field.errors }}
+                {{ field.label_tag }} {{ field }}
+                {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+                {% endif %}
+            <!-- </div><br> -->
+            <br>
+        	{% endfor %}
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+    
+</form>
+
+{% if messages %}
+<!-- <ul class="messages"> -->
+    {% for message in messages %}
+    	{% if message.tags == 'success' %} <h1 class="text-success">{{ message }}</h1> {% endif %}
+    	{% if message.tags == 'error' %} <h1 class="text-danger">{{ message }}</h1> {% endif %}
+    {% endfor %}
+    <!-- {% if message.tags %} class="label label-success" {% endif %} -->
+    
+<!-- </ul> -->
+{% endif %}
+</div>
+{% endblock form_content %}

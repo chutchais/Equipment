@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load system_tag %}
+
+{% block head %}
+    <h3>Machine Summary Page <small><a href="{% url 'create' %}"> Create New Request </a></small></h3>
+
+{% endblock head %}
+
+
+{% block form_content %}
+<div class="row">
+	<!-- Parameter Section -->
+    
+             {% for obj in objs %}
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title" id="each_param">
+                    <!-- <h2><small>{{param.description}}</small></h2> -->
+                    <h2><small><a href="{% url 'pending_repair' %}">{{obj.name}}</a></small></h2>
+                    <div class="clearfix"></div>
+                  </div>
+					<div class="x_content">
+					{% for m in machines|in_machine_type:obj.name  %}
+						{{ m.status }} -- {{ m.number }} <br>
+					{% endfor %}
+					</div>
+                </div>
+              </div>
+              {% endfor %}
+              <!-- End Parameter-->
+</div>
+{% endblock form_content %}

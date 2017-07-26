@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Acknowledge Job{% endblock title %}
+
+<br>
+
+
+
+{% block head %}
+<div class="row">
+    <br>
+    <h3>Machine Details</h3>
+</div>
+{% endblock head %}
+
+{% block form_content %}
+
+<div class="row">
+    <br>
+    <h4>Repair History <small><a href="{% url 'pending_repair' %}"> see current pending repair</a></small></h4>
+</div>
+
+<div class="row">
+	<table class="table table-hover">
+	<tr>
+	   <th>Machine#</th>
+       <th>Created Date</th>
+	   <th>Symptom</th>
+	   <th>Details</th>
+	   <th>Finished Date</th>
+	 </tr>
+     {% for obj in objs %}
+		<tr>
+			<td><a href="{% url 'machine_details_id' obj.machine obj.id %}">{{ obj.machine }}</a></td>
+            <td>{{ obj.created_date }}</td>
+			<td>{{ obj.symptom }}</td>
+			<td>{{ obj.description }}</td>
+			<td>{{ obj.finished_date }}</td>
+		</tr>
+     {% endfor %}
+	</table>
+
+
+
+    <br>
+    {% if current_id %}
+        <h4>Current Repair Log : {{ current_id.symptom }} <small> on {{ current_id.created_date }}</small></h4>
+    {% else %}
+        <h4>Current Repair Log : {{ objs.last.symptom }} <small> on {{ objs.last.created_date }}</small></h4>
+    {% endif %}
+
+
+    <table class="table table-hover">
+    <tr>
+       <th>Created Date</th>
+       <th>Type</th>
+       <th>Comment</th>
+       <th>user</th>
+     </tr>
+        {% for log in logs %}
+        <tr>
+            <td>{{ log.modified_date }}</td>
+            <td>{{ log.log_type }}</td>
+            <td>{{ log.comment }}</td>
+            <td>{{ log.user }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+
+
+<!-- {% if messages %}
+    {% for message in messages %}
+    	{% if message.tags == 'success' %} <h1 class="text-success">{{ message }}</h1> {% endif %}
+    	{% if message.tags == 'error' %} <h1 class="text-danger">{{ message }}</h1> {% endif %}
+    {% endfor %}
+{% endif %} -->
+</div>
+{% endblock form_content %}

@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% load system_tag %}
+
+{% block title %}Pending Job{% endblock title %}
+
+<br>
+
+
+
+{% block head %}
+
+{% endblock head %}
+
+{% block form_content %}
+<div class="row">
+
+	<div class="row">
+    <br>
+    <h3>Waiting For Acknowledge <small><a href="{% url 'index' %}"> summary page</a></h3>
+</div>
+	<table class="table table-hover">
+	<tr>
+	   <th>Machine#</th>
+	   <th>Symptom</th>
+	   <th>Details</th>
+	   <th>Created Date</th>
+	   <!-- <th>Acknowledge Date</th> -->
+	   <th></th>
+	 </tr>
+	{% for field in obj|in_status:"PENDING" %}
+		<tr>
+			<td><a href="../details/{{ field.id }}"> {{ field.machine }}</a></td>
+			<td>{{ field.symptom }}</td>
+			<td>{{ field.description }}</td>
+			<td>{{ field.created_date }}</td>
+			<!-- <td>{{ field.ack_date }}</td> -->
+			<td><a href="../pending/{{ field.id }}" class="btn btn-primary btn-xs" role="button">Acknowledge</a></td>
+		</tr>
+	{% endfor %}
+	</table>
+
+
+	<div class="row">
+    <br>
+    <h3>Waiting For Start Repair </h3>
+</div>
+	<table class="table table-hover">
+	<tr>
+	   <th>Machine#</th>
+	   <th>Symptom</th>
+	   <th>Details</th>
+	   <th>Created Date</th>
+	   <th>Acknowledge Date</th>
+	   <th></th>
+	 </tr>
+	{% for field in obj|in_status:"ACK" %}
+		<tr>
+			<td><a href="../details/{{ field.id }}"> {{ field.machine }}</a></td>
+			<td>{{ field.symptom }}</td>
+			<td>{{ field.description }}</td>
+			<td>{{ field.created_date }}</td>
+			<td>{{ field.ack_date }}</td>
+			<td><a href="{{ field.id }}" class="btn btn-primary btn-xs" role="button">Start Repair</a></td>
+		</tr>
+	{% endfor %}
+	</table>
+
+
+<!-- {% if messages %}
+    {% for message in messages %}
+    	{% if message.tags == 'success' %} <h1 class="text-success">{{ message }}</h1> {% endif %}
+    	{% if message.tags == 'error' %} <h1 class="text-danger">{{ message }}</h1> {% endif %}
+    {% endfor %}
+{% endif %} -->
+	<div class="row">
+	    <br>
+	    <h3>On Repairing Process</h3>
+	</div>
+	<table class="table table-hover">
+	<tr>
+	   <th>Machine#</th>
+	   <th>Symptom</th>
+	   <th>Details</th>
+<!-- 	   <th>Created Date</th>
+	   <th>Acknowledge Date</th> -->
+	   <th>Target Date</th>
+	   <th></th>
+	   <th></th>
+	 </tr>
+	{% for field in obj|in_status:"WORKING" %}
+		<tr>
+			<td><a href="../details/{{ field.id }}"> {{ field.machine }}</a></td>
+			<td>{{ field.symptom }}</td>
+			<td>{{ field.description }}</td>
+<!-- 			<td>{{ field.created_date }}</td>
+			<td>{{ field.ack_date }}</td> -->
+			<td>{{ field.target_date }}</td>
+			<td><a href="{{ field.id }}/comment" class="btn btn-primary btn-xs" role="button">Add Comment</a>  
+			<a href="{{ field.id }}/finish" class="btn btn-primary btn-xs" role="button">Finish</a></td>
+		</tr>
+	{% endfor %}
+	</table>
+
+</div>
+{% endblock form_content %}
