@@ -32,4 +32,12 @@ class TicketCommentForm(forms.Form):
     details = forms.CharField(label='Comment',widget=forms.Textarea,required=False)
 
 
-    # ,widget=SelectDateWidget(empty_label="Nothing")
+#log/forms.py
+from django.contrib.auth.forms import AuthenticationForm 
+
+# If you don't do this you cannot use Bootstrap CSS
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(label="Username", max_length=30, 
+                               widget=forms.TextInput(attrs={'class': 'form-control', 'name': 'username'}))
+    password = forms.CharField(label="Password", max_length=30, 
+                               widget=forms.TextInput(attrs={'class': 'form-control', 'name': 'password'}))

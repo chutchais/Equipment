@@ -2,7 +2,12 @@
 {% load system_tag %}
 
 {% block head %}
-    <h3>Machine Summary Page <small><a href="{% url 'create' %}"> Create New Request </a></small></h3>
+    <h3>Machine Summary Page 
+      {% if request.user.is_authenticated %}         
+          <small><a href="{% url 'create' %}"> Create New Request </a></small>
+        {% endif %}
+      
+    </h3>
 
 {% endblock head %}
 
@@ -16,13 +21,22 @@
                 <div class="x_panel">
                   <div class="x_title" id="each_param">
                     <!-- <h2><small>{{param.description}}</small></h2> -->
-                    <h2><small><a href="{% url 'pending_repair' %}">{{obj.name}}</a></small></h2>
+                    <h2><small><a href="{% url 'machine_Status' obj.name %}">{{obj.name}}</a></small></h2>
                     <div class="clearfix"></div>
                   </div>
 					<div class="x_content">
-					{% for m in machines|in_machine_type:obj.name  %}
-						{{ m.status }} -- {{ m.number }} <br>
-					{% endfor %}
+            <table class="table table-striped">
+              <tr>
+                 <th>Status</th>
+                 <th>Qty</th>
+               </tr>
+              {% for m in machines|in_machine_type:obj.name  %}
+                <tr>
+                	<td>{{ m.status }}</td>
+                  <td>{{ m.number }}</td>
+                </tr>
+              {% endfor %}
+            </table>
 					</div>
                 </div>
               </div>

@@ -16,10 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
+from django.contrib.auth import views as auth_views
+
+from machine.forms import LoginForm
+
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^machine/', include('machine.urls')),
+    # url(r'^login/$', auth_views.login, {'template_name': 'login.html', 'authentication_form': LoginForm} , name='login'),
+    # url(r'^logout/$', auth_views.logout, {'next_page': '/login'},name='logout'),
 ]
 
-admin.site.site_header = 'LCB1 - Equipment Administrator'
+admin.site.site_header = 'LCB1 - Machine Management System'

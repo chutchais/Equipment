@@ -17,7 +17,7 @@
 
 	<div class="row">
     <br>
-    <h3>Waiting For Acknowledge <small><a href="{% url 'index' %}"> summary page</a></h3>
+    <h3>Waiting For Acknowledge <small><a href="{% url 'index' %}"> Home</a></h3>
 </div>
 	<table class="table table-hover">
 	<tr>
@@ -30,12 +30,16 @@
 	 </tr>
 	{% for field in obj|in_status:"PENDING" %}
 		<tr>
-			<td><a href="../details/{{ field.id }}"> {{ field.machine }}</a></td>
+			<td><a href="{% url 'machine_details' field.machine %}"> {{ field.machine }}</a></td>
 			<td>{{ field.symptom }}</td>
 			<td>{{ field.description }}</td>
 			<td>{{ field.created_date }}</td>
 			<!-- <td>{{ field.ack_date }}</td> -->
-			<td><a href="../pending/{{ field.id }}" class="btn btn-primary btn-xs" role="button">Acknowledge</a></td>
+			<td>
+				{% if request.user.is_authenticated %}
+				<a href= {% url 'acknowledge' field.id %} class="btn btn-primary btn-xs" role="button">Acknowledge</a>
+				{% endif %}
+			</td>
 		</tr>
 	{% endfor %}
 	</table>
@@ -56,12 +60,16 @@
 	 </tr>
 	{% for field in obj|in_status:"ACK" %}
 		<tr>
-			<td><a href="../details/{{ field.id }}"> {{ field.machine }}</a></td>
+			<td><a href="{% url 'machine_details' field.machine %}"> {{ field.machine }}</a></td>
 			<td>{{ field.symptom }}</td>
 			<td>{{ field.description }}</td>
 			<td>{{ field.created_date }}</td>
 			<td>{{ field.ack_date }}</td>
-			<td><a href="{{ field.id }}" class="btn btn-primary btn-xs" role="button">Start Repair</a></td>
+			<td>
+				{% if request.user.is_authenticated %}
+				<a href="{{ field.id }}" class="btn btn-primary btn-xs" role="button">Start Repair</a>
+				{% endif %}
+			</td>
 		</tr>
 	{% endfor %}
 	</table>
@@ -90,14 +98,17 @@
 	 </tr>
 	{% for field in obj|in_status:"WORKING" %}
 		<tr>
-			<td><a href="../details/{{ field.id }}"> {{ field.machine }}</a></td>
+			<td><a href="{% url 'machine_details' field.machine %}"> {{ field.machine }}</a></td>
 			<td>{{ field.symptom }}</td>
 			<td>{{ field.description }}</td>
 <!-- 			<td>{{ field.created_date }}</td>
 			<td>{{ field.ack_date }}</td> -->
 			<td>{{ field.target_date }}</td>
-			<td><a href="{{ field.id }}/comment" class="btn btn-primary btn-xs" role="button">Add Comment</a>  
-			<a href="{{ field.id }}/finish" class="btn btn-primary btn-xs" role="button">Finish</a></td>
+			<td>
+				{% if request.user.is_authenticated %}
+					<a href="{{ field.id }}/comment" class="btn btn-primary btn-xs" role="button">Add Comment</a>  
+					<a href="{{ field.id }}/finish" class="btn btn-primary btn-xs" role="button">Finish</a></td>
+				{% endif %}
 		</tr>
 	{% endfor %}
 	</table>

@@ -25,7 +25,8 @@ SECRET_KEY = 'n1t&3ee6qe%w!h&pzo&#pnpukrs-8zbt9c$-zp34-!-la@!q#1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+LOGIN_REDIRECT_URL = '/machine' # It means home view
 
 
 # Application definition
