@@ -86,9 +86,9 @@ def startRepair(request,id):
 			obj.target_date = target
 			obj.save()
 
-			# mc = Machine.objects.get(name=machine)
-			# mc.status='REPAIR'
-			# mc.save()
+			mc = Machine.objects.get(name=obj.machine)
+			mc.status='REPAIR'
+			mc.save()
 
 			
 			# obj.update(status='ACK',ack_date=datetime.datetime.now())
