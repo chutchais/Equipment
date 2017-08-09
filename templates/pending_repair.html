@@ -67,7 +67,7 @@
 			<td>{{ field.ack_date }}</td>
 			<td>
 				{% if request.user.is_authenticated %}
-				<a href="{{ field.id }}" class="btn btn-primary btn-xs" role="button">Start Repair</a>
+				<a href="{% url 'start_repair' field.id %}" class="btn btn-primary btn-xs" role="button">Start Repair</a>
 				{% endif %}
 			</td>
 		</tr>
@@ -106,8 +106,8 @@
 			<td>{{ field.target_date }}</td>
 			<td>
 				{% if request.user.is_authenticated %}
-					<a href="{{ field.id }}/comment" class="btn btn-primary btn-xs" role="button">Add Comment</a>  
-					<a href="{{ field.id }}/finish" class="btn btn-primary btn-xs" role="button">Finish</a></td>
+					<a href="{% url 'comment_repair' field.id %}" class="btn btn-primary btn-xs" role="button">Add Comment</a>  
+					<a href="{% url 'finish_repair' field.id %}" class="btn btn-primary btn-xs" role="button">Finish</a></td>
 				{% endif %}
 		</tr>
 	{% endfor %}

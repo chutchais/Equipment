@@ -105,7 +105,7 @@ def startRepair(request,id):
 @login_required(login_url="/login/")
 def finishRepair(request,id):
 	obj =Ticket.objects.get(id=id,status='WORKING')
-	# 'print (obj)
+	print (obj)
 	if request.method == 'POST':
 		form = TicketFinishForm(request.POST)
 
@@ -132,9 +132,10 @@ def finishRepair(request,id):
 
 @login_required(login_url="/login/")
 def commentRepair(request,id):
-	obj =Ticket.objects.get(id=id,status='WORKING')
+	# obj =Ticket.objects.get(id=id,status='WORKING')
+	obj =Ticket.objects.get(id=id)
 	log = Log.objects.filter(ticket=obj).order_by('modified_date')
-	# 'print (obj)
+	print (obj)
 	if request.method == 'POST':
 		form = TicketCommentForm(request.POST)
 
