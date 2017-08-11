@@ -17,7 +17,7 @@ from django.core.urlresolvers import reverse
 
 def index(request):
 	machine_obj =Machine_type.objects.all()
-	s = Machine.objects.all().values('machine_type','status').annotate(number=Count('name'))
+	s = Machine.objects.all().values('machine_type','status').annotate(number=Count('name')).order_by('-number')
 	return render(request, 'index.html', {'objs': machine_obj,'machines':s})
 	# return HttpResponse("Hello I am Machine Man")
 
@@ -169,18 +169,33 @@ def machineDetails(request,machine,id = None):
 
 def machineDetails2(request,machine):
 	obj =Ticket.objects.filter(machine__name=machine).order_by('created_date')
+	mc = Machine.objects.get(name=machine)
+	machine_type = mc.machine_type
 	if obj :
 		m = Ticket.objects.get(id=obj.last().id)
 		log = Log.objects.filter(ticket = obj.last()).order_by('modified_date')
+		
 	else :
 		m =None
 		log = None
-	return render(request, 'machine_details.html', {'machine': machine ,'objs':obj,'logs':log,'current_id':m})
+	return render(request, 'machine_details.html', {'machine': machine ,
+		'objs':obj,'logs':log,
+		'current_id':m,
+		'machine_type': machine_type})
 
 def machineStatus(request,machine_type):
-	obj =Machine.objects.filter(machine_type=machine_type).order_by('name')
+
+	status = request.GET.get('status','ALL')
+
+	if status == 'ALL':
+		obj =Machine.objects.filter(machine_type=machine_type).order_by('name')
+	else:
+		obj =Machine.objects.filter(machine_type=machine_type,
+			status=status).order_by('name')
 	# log = Log.objects.filter(ticket = obj.last()).order_by('modified_date')
-	return render(request, 'machine_status.html', {'objs':obj,'machine_type':machine_type})
+	return render(request, 'machine_status.html', {'objs':obj,
+		'machine_type':machine_type,
+		'status' : status})
 
 @login_required(login_url="/login/")
 def create(request):

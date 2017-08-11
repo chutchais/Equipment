@@ -10,7 +10,7 @@
 {% block head %}
 <div class="row">
     <br>
-    <h3>Machine Status : {{ machine_type }}</h3>
+    <h3>Machine Status : {{ machine_type }} - {{ status }}</h3>
 </div>
 {% endblock head %}
 
@@ -23,7 +23,24 @@
 
 <div class="row">
 <a href="{% url 'index' %}"> Home</a> - 
-<a href="{% url 'pending_type'  machine_type %}"> Pending Repair for all machine</a>
+<a href="{% url 'pending_type'  machine_type %}"> Pending Repair </a>
+
+{% if status == 'ALL' %}
+    - <a href="{% url 'machine_Status'  machine_type %}?status=USED"> <span class="label label-success">Used</span></a>
+    - <a href="{% url 'machine_Status'  machine_type %}?status=REPAIR"><span class="label label-warning">Repair</span></a>
+{% endif %}
+
+
+
+{% if status == 'USED' %}
+    - <a href="{% url 'machine_Status'  machine_type %}"><span class="label label-primary">All</span></a>
+    - <a href="{% url 'machine_Status'  machine_type %}?status=REPAIR"><span class="label label-warning">Repair</span></a>
+{% endif %}
+
+{% if status == 'REPAIR' %}
+    - <a href="{% url 'machine_Status'  machine_type %}"> <span class="label label-primary">All</span></a>
+    - <a href="{% url 'machine_Status'  machine_type %}?status=USED"> <span class="label label-success">Used</span></a>
+{% endif %}
 
 	<table class="table table-hover">
 	<tr>
@@ -52,6 +69,7 @@
                            <th>Symptom</th>
                            <th>Status</th>
                            <th>Last message</th>
+                           <th>Target Date</th>
                            <th>Last update</th>
                          </tr>
                          {% for t in obj.tickets.all|in_repair %}
@@ -59,6 +77,7 @@
                                 <td> {{ t.symptom}} </td>
                                 <td> {{ t.status}}</td>
                                 <td> {{ t.logs.last.comment }}</td>
+                                <td> <small>{{ t.target_date }}</small></td>
                                 <td> <small>{{ t.logs.last.modified_date }}</small></td>
                             </tr>
                         {% endfor %}

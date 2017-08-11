@@ -6,3 +6,4 @@ machine/*.pyc
 machine/migrations/*.py
 machine/migrations/*.pyc
 machine/db.sqlite3
+db.sqlite3

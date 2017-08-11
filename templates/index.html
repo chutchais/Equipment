@@ -17,28 +17,32 @@
 	<!-- Parameter Section -->
     
              {% for obj in objs %}
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title" id="each_param">
-                    <!-- <h2><small>{{param.description}}</small></h2> -->
-                    <h2><small><a href="{% url 'machine_Status' obj.name %}">{{obj.name}}</a></small></h2>
-                    <div class="clearfix"></div>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><a href="{% url 'machine_Status' obj.name %}">{{obj.name}}</a></small></h3>
                   </div>
-					<div class="x_content">
-            <table class="table table-striped">
-              <tr>
-                 <th>Status</th>
-                 <th>Qty</th>
-               </tr>
-              {% for m in machines|in_machine_type:obj.name  %}
-                <tr>
-                	<td>{{ m.status }}</td>
-                  <td>{{ m.number }}</td>
-                </tr>
-              {% endfor %}
-            </table>
-					</div>
+                  <div class="panel-body">
+                      {% for m in machines|in_machine_type:obj.name  %}
+                          <a href="{% url 'machine_Status' obj.name %}?status={{ m.status }}">
+                          {% if m.status == 'USED' %}
+                              <button class= "btn btn-success" type="button">
+                                {{ m.status }} <span class="badge">{{ m.number }}</span>
+                              </button>
+                          {% endif %}
+                          {% if m.status == 'REPAIR' %}
+                              <button class= "btn btn-warning" type="button">
+                                {{ m.status }} <span class="badge">{{ m.number }}</span>
+                              </button>
+                          {% endif %}
+                          </a>
+                      {% endfor %}
+
+                  </div>
                 </div>
+
+
               </div>
               {% endfor %}
               <!-- End Parameter-->
